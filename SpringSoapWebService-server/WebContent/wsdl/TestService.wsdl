@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://books.soap.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://books.soap.com" xmlns:intf="http://books.soap.com" xmlns:tns1="http://vo.books.soap.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://books.soap.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://vo.books.soap.com"/>
+   <element name="createBook">
+    <complexType>
+     <sequence>
+      <element name="book" type="tns1:Books"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createBookResponse">
+    <complexType/>
+   </element>
+   <element name="updateBooks">
+    <complexType>
+     <sequence>
+      <element name="book" type="tns1:Books"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateBooksResponse">
+    <complexType/>
+   </element>
+   <element name="deleteBooks">
+    <complexType>
+     <sequence>
+      <element name="bookid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteBooksResponse">
+    <complexType/>
+   </element>
+   <element name="getBooks">
+    <complexType>
+     <sequence>
+      <element name="bookid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBooksResponse">
+    <complexType>
+     <sequence>
+      <element name="getBooksReturn" type="tns1:Books"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://vo.books.soap.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Books">
+    <sequence>
+     <element name="author" nillable="true" type="xsd:string"/>
+     <element name="bookName" nillable="true" type="xsd:string"/>
+     <element name="bookid" type="xsd:int"/>
+     <element name="category" nillable="true" type="xsd:string"/>
+     <element name="noOfCopies" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="deleteBooksResponse">
+
+      <wsdl:part element="impl:deleteBooksResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createBookResponse">
+
+      <wsdl:part element="impl:createBookResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateBooksRequest">
+
+      <wsdl:part element="impl:updateBooks" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createBookRequest">
+
+      <wsdl:part element="impl:createBook" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBooksResponse">
+
+      <wsdl:part element="impl:getBooksResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteBooksRequest">
+
+      <wsdl:part element="impl:deleteBooks" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateBooksResponse">
+
+      <wsdl:part element="impl:updateBooksResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBooksRequest">
+
+      <wsdl:part element="impl:getBooks" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TestService">
+
+      <wsdl:operation name="createBook">
+
+         <wsdl:input message="impl:createBookRequest" name="createBookRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createBookResponse" name="createBookResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateBooks">
+
+         <wsdl:input message="impl:updateBooksRequest" name="updateBooksRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateBooksResponse" name="updateBooksResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteBooks">
+
+         <wsdl:input message="impl:deleteBooksRequest" name="deleteBooksRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteBooksResponse" name="deleteBooksResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBooks">
+
+         <wsdl:input message="impl:getBooksRequest" name="getBooksRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBooksResponse" name="getBooksResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TestServiceSoapBinding" type="impl:TestService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="createBook">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createBookRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createBookResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateBooks">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateBooksRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateBooksResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteBooks">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteBooksRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteBooksResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBooks">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBooksRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBooksResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TestServiceService">
+
+      <wsdl:port binding="impl:TestServiceSoapBinding" name="TestService">
+
+         <wsdlsoap:address location="http://localhost:8080/SpringSoapWebService-server/services/TestService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
